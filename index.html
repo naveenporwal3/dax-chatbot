@@ -24,7 +24,7 @@
       const input = document.getElementById("input").value;
       document.getElementById("response").innerText = "⏳ Generating DAX...";
 
-      const res = await fetch("https://1ab7e1c8-22e5-4778-a0b4-05353c19d41e-00-17pxnh8r7ssbi.riker.replit.dev/dax", {
+      const res = await fetch("https://workspace.naveenporwal3.replit.dev", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: input })
