@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DAX Chatbot</title>
+  <title>DAX Chatbot (Free - Hugging Face)</title>
   <style>
     body { font-family: Arial; max-width: 600px; margin: auto; padding: 20px; }
     textarea { width: 100%; height: 80px; margin-top: 10px; }
@@ -11,10 +11,10 @@
   </style>
 </head>
 <body>
-  <h1>DAX Chatbot</h1>
+  <h1>DAX Chatbot (Free - Hugging Face)</h1>
   <p>Ask anything in plain English, and get a DAX formula.</p>
   
-  <textarea id="input" placeholder="E.g., Total sales for last 6 months by product"></textarea>
+  <textarea id="input" placeholder="E.g., Total revenue for the last 6 months by product"></textarea>
   <button onclick="askDAX()">Generate DAX</button>
 
   <div id="response"></div>
@@ -24,14 +24,14 @@
       const input = document.getElementById("input").value;
       document.getElementById("response").innerText = "⏳ Generating DAX...";
 
-      const res = await fetch("https://your-deployed-replit-url.replit.app", {
+      const res = await fetch("/generate-dax", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: input })
+        body: JSON.stringify({ request: input })
       });
 
       const data = await res.json();
-      document.getElementById("response").innerText = data.dax || "Something went wrong.";
+      document.getElementById("response").innerText = data.dax_code || data.error || "Something went wrong.";
     }
   </script>
 </body>
